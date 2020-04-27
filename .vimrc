@@ -1,3 +1,29 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'sheerun/vim-polyglot'
+Plug 'altercation/vim-colors-solarized'
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+
+call plug#end()
+
+""" Airline...
+
+let g:airline#extensions#branch#enabled = 1 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_detect_modified = 1
+let g:airline_detect_paste = 1
+let g:airline_detect_crypt = 1
+let g:airline_detect_spell = 1
+let g:airline_detect_spelllang = 1
+let g:airline_powerline_fonts = 1
+
+""" Rest of the stuff...
+
 set nocompatible
 
 set confirm
@@ -29,15 +55,7 @@ set wildmenu
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Visual ruler
-set colorcolumn=80
-highlight ColorColumn ctermbg=darkgrey
+" set colorcolumn=80
+" highlight ColorColumn ctermbg=darkgrey
 
 set relativenumber
-
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
