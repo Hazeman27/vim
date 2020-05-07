@@ -13,11 +13,7 @@ call plug#end()
 
 let g:airline#extensions#branch#enabled = 1 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_detect_modified = 1
-let g:airline_detect_paste = 1
-let g:airline_detect_crypt = 1
 let g:airline_detect_spell = 1
 let g:airline_detect_spelllang = 1
 let g:airline_powerline_fonts = 1
@@ -30,7 +26,7 @@ set confirm
 set ruler
 set path+=**
 
-colorscheme torte
+colorscheme default
 syntax enable
 set background=dark
 
@@ -55,7 +51,24 @@ set wildmenu
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Visual ruler
-" set colorcolumn=80
-" highlight ColorColumn ctermbg=darkgrey
+set colorcolumn=90
+highlight ColorColumn ctermbg=darkgrey
 
+" Display relative line number
 set relativenumber
+
+" Enable scrolling with mouse.
+" Note: I don't usually use mouse for navigation, but sometimes I might start
+" scrolling with mouse out of habit
+set mouse=a
+
+" Map TAB key for autocompletion
+function! CleverTab()
+	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+		return "\<Tab>"
+	else
+		return "\<C-N>"
+	endif
+endfunction
+inoremap <Tab> <C-R>=CleverTab()<CR>
+
