@@ -6,6 +6,7 @@ Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
+Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
 
