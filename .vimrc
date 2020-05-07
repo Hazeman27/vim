@@ -27,7 +27,6 @@ set confirm
 set ruler
 set path+=**
 
-colorscheme default
 syntax enable
 set background=dark
 
