@@ -6,7 +6,9 @@ Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
-Plug 'ycm-core/YouCompleteMe'
+Plug 'cormacrelf/vim-colors-github'
+Plug 'arzg/vim-colors-xcode'
+Plug 'tpope/vim-sleuth'
 
 call plug#end()
 
@@ -17,9 +19,24 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_detect_spell = 1
 let g:airline_detect_spelllang = 1
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
+"let g:airline_theme = "github"
+"let g:lightline = { 'colorscheme': 'github' }
+
+""" YCM (You complete me)...
+
+"let g:ycm_error_symbol = '!'
+"let g:ycm_collect_identifiers_from_tags_files = 1
+"let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_auto_trigger = 0
 
 """ Rest of the stuff...
+
+" Use a slightly darker background, like GitHub inline code blocks
+"let g:github_colors_soft = 1
+
+" More blocky diff markers in signcolumn (e.g. GitGutter)
+"let g:github_colors_block_diffmark = 0
 
 set nocompatible
 
@@ -27,6 +44,7 @@ set confirm
 set ruler
 set path+=**
 
+"colorscheme xcodedarkhc
 syntax enable
 set background=dark
 
@@ -61,6 +79,9 @@ set relativenumber
 " Note: I don't usually use mouse for navigation, but sometimes I might start
 " scrolling with mouse out of habit
 set mouse=a
+
+" Spell checking
+set spelllang=en_us
 
 " Map TAB key for autocompletion
 function! CleverTab()
