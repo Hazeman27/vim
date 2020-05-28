@@ -3,22 +3,26 @@ call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
 Plug 'altercation/vim-colors-solarized'
 Plug 'preservim/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'arzg/vim-colors-xcode'
 Plug 'tpope/vim-sleuth'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'w0rp/ale'
 
 call plug#end()
 
 """ Airline...
 
-let g:airline#extensions#branch#enabled = 1 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_detect_spell = 1
-let g:airline_detect_spelllang = 1
+"let g:airline#extensions#branch#enabled = 1 
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+"let g:airline_detect_spell = 1
+"let g:airline_detect_spelllang = 1
 "let g:airline_powerline_fonts = 1
 "let g:airline_theme = "github"
 "let g:lightline = { 'colorscheme': 'github' }
@@ -38,19 +42,33 @@ let g:airline_detect_spelllang = 1
 " More blocky diff markers in signcolumn (e.g. GitGutter)
 "let g:github_colors_block_diffmark = 0
 
+""" Eslint stuff...
+
+let g:ale_fixers = { 'javascript': ['eslint'] }
+let g:ale_sign_error = '>'
+let g:ale_sign_warning = '!'
+let g:ale_fix_on_save = 1
+
+""" Default sets
+
 set nocompatible
 
 set confirm
 set ruler
 set path+=**
 
-"colorscheme xcodedarkhc
+"colorscheme solarized
 syntax enable
 set background=dark
 
 " Tab size
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
+set textwidth=90
+set expandtab
+set autoindent
+set fileformat=unix
 
 filetype plugin on
 filetype indent plugin on
@@ -93,3 +111,22 @@ function! CleverTab()
 endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
 
+" Python PEP8
+
+au BufNewFile,BufRead *.py
+    \   set tabstop=4
+    \ | set softtabstop=4
+    \ | set shiftwidth=4
+    \ | set textwidth=90
+    \ | set expandtab
+    \ | set autoindent
+    \ | set fileformat=unix
+
+au BufNewFile,BufRead *.c
+    \   set tabstop=8
+    \ | set softtabstop=8
+    \ | set shiftwidth=8
+    \ | set textwidth=90
+    \ | set expandtab
+    \ | set autoindent
+    \ | set fileformat=unix
